@@ -14,7 +14,7 @@ logo_col, title_col = st.columns([1.5, 6])
 with logo_col:
     # Adjust width as needed
     st.write("")
-    st.image(r"C:\Users\micha\Desktop\Models\G_Meridian\PM_demo\logo2.png") 
+    st.image("logo2.png") 
 
 with title_col:
     #st.write("### Marketing Mix Modelling Dashboard")
@@ -45,9 +45,9 @@ st.markdown(f"""
 st.markdown("<hr style='border:1px solid red'>", unsafe_allow_html=True)
 
 # Tutaj dodajemy źródła
-demo_data = pd.read_excel(r'C:\Users\micha\Desktop\Models\G_Meridian\PM_demo\mockup_data.xlsx')
-demo_data1 = pd.read_excel(r'C:\Users\micha\Desktop\Models\G_Meridian\PM_demo\mockup_data.xlsx')
-demo_data2 = pd.read_excel(r'C:\Users\micha\Desktop\Models\G_Meridian\PM_demo\mockup_data.xlsx')
+demo_data = pd.read_excel('mockup_data.xlsx')
+demo_data1 = pd.read_excel('mockup_data.xlsx')
+demo_data2 = pd.read_excel('mockup_data.xlsx')
 
 # tutaj wykonujemy obliczenia do wykresów
 
