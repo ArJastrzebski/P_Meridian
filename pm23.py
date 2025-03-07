@@ -146,11 +146,11 @@ with tab1: # Scenario 1 layout
     with summarizer_col:
         fig_sc1 = px.line(demo_data, x= group_by , y=['Expected_leads', 'Actual_leads'], labels={'value':'Values', 'time': group_by }, title='Expected leads vs. Actual leads')
         fig_sc1.update_layout(legend_title='Legend',template='plotly_white')
-        st.plotly_chart(fig_sc1)
+        st.plotly_chart(fig_sc1, key="unique_key_1")
        
         result_factors_df = pd.DataFrame(list(result_factors.items()), columns=['Factor', 'Percentage'])
         fig_sc11 = px.bar(result_factors_df, x='Factor', y='Percentage', title='Sales contribution by baseline and marketing channel',color_discrete_sequence=['#0050B5'])
-        st.plotly_chart(fig_sc11)
+        st.plotly_chart(fig_sc11, key="unique_key_11")
     
     with funnel_col:
         funnel_columns = demo_data[['Impressions', 'Leads', 'Opportunities', 'Customers']]
@@ -161,7 +161,7 @@ with tab1: # Scenario 1 layout
         data = {'number': list(funnel_factors.values()),'stage': list(funnel_factors.keys())}
         fig_sc12 = px.funnel(data, x='number', y='stage', title='Marketing funnel and converstion rates',color_discrete_sequence=['#3C5291'])
         fig_sc12.update_layout(yaxis_title=None)
-        st.plotly_chart(fig_sc12)
+        st.plotly_chart(fig_sc12, key="unique_key_12")
     # ------------------------------
 with tab2: # Scenario 2 layout
     st.markdown("""<h4 style="font-size: 20px; margin-bottom: -20px;"> Leads </h4>""", unsafe_allow_html=True)
@@ -215,11 +215,11 @@ with tab2: # Scenario 2 layout
     with summarizer_col:
         fig_sc2 = px.line(demo_data, x= group_by , y=['Expected_leads', 'Actual_leads'], labels={'value':'Values', 'time': group_by }, title='Expected leads vs. Actual leads')
         fig_sc2.update_layout(legend_title='Legend',template='plotly_white')
-        st.plotly_chart(fig_sc2)
+        st.plotly_chart(fig_sc2, key="unique_key_2")
        
         result_factors_df = pd.DataFrame(list(result_factors.items()), columns=['Factor', 'Percentage'])
         fig_sc21 = px.bar(result_factors_df, x='Factor', y='Percentage', title='Sales contribution by baseline and marketing channel',color_discrete_sequence=['#0050B5'])
-        st.plotly_chart(fig_sc21)
+        st.plotly_chart(fig_sc21, key="unique_key_21")
     
     with funnel_col:
         funnel_columns = demo_data1[['Impressions', 'Leads', 'Opportunities', 'Customers']]
@@ -230,7 +230,7 @@ with tab2: # Scenario 2 layout
         data = {'number': list(funnel_factors.values()),'stage': list(funnel_factors.keys())}
         fig_sc22 = px.funnel(data, x='number', y='stage', title='Marketing funnel and converstion rates',color_discrete_sequence=['#3C5291'])
         fig_sc22.update_layout(yaxis_title=None)
-        st.plotly_chart(fig_sc22)        
+        st.plotly_chart(fig_sc22, key="unique_key_22")        
     # ------------------------------
 with tab3: # Scenario 3 layout
     st.markdown("""<h4 style="font-size: 20px; margin-bottom: -20px;"> Leads </h4>""", unsafe_allow_html=True)
@@ -284,11 +284,11 @@ with tab3: # Scenario 3 layout
     with summarizer_col:
         fig_sc3 = px.line(demo_data, x= group_by , y=['Expected_leads', 'Actual_leads'], labels={'value':'Values', 'time': group_by }, title='Expected leads vs. Actual leads')
         fig_sc3.update_layout(legend_title='Legend',template='plotly_white')
-        st.plotly_chart(fig_sc3)
+        st.plotly_chart(fig_sc3, key="unique_key_3")
 
         result_factors_df = pd.DataFrame(list(result_factors.items()), columns=['Factor', 'Percentage'])
         fig_sc31 = px.bar(result_factors_df, x='Factor', y='Percentage', title='Sales contribution by baseline and marketing channel',color_discrete_sequence=['#0050B5'])
-        st.plotly_chart(fig_sc31)
+        st.plotly_chart(fig_sc31, key="unique_key_31")
     
     with funnel_col:
         funnel_columns = demo_data2[['Impressions', 'Leads', 'Opportunities', 'Customers']]
@@ -299,6 +299,6 @@ with tab3: # Scenario 3 layout
         data = {'number': list(funnel_factors.values()),'stage': list(funnel_factors.keys())}
         fig_sc32 = px.funnel(data, x='number', y='stage', title='Marketing funnel and converstion rates',color_discrete_sequence=['#3C5291'])
         fig_sc32.update_layout(yaxis_title=None)
-        st.plotly_chart(fig_sc32)
+        st.plotly_chart(fig_sc32, key="unique_key_32")
 
 
