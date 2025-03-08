@@ -45,9 +45,9 @@ st.markdown(f"""
 st.markdown("<hr style='border:1px solid red'>", unsafe_allow_html=True)
 
 # Tutaj dodajemy źródła
-demo_data = pd.read_excel('mockup_data.xlsx')
-demo_data1 = pd.read_excel('mockup_data.xlsx')
-demo_data2 = pd.read_excel('mockup_data.xlsx')
+demo_data = pd.read_excel('demo_data.xlsx')
+demo_data1 = pd.read_excel('demo_data1.xlsx')
+demo_data2 = pd.read_excel('demo_data2.xlsx')
 
 # tutaj wykonujemy obliczenia do wykresów
 
