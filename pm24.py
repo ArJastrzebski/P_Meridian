@@ -6,14 +6,14 @@ import plotly.express as px
 
 # Configure page
 st.set_page_config(page_title="Marketing Mix Modelling Dashboard", 
-        layout="wide", page_icon = r"C:\Users\micha\Desktop\Models\G_Meridian\PM_demo\logo1.svg")
+        layout="wide", page_icon = "logo1.svg")
 
 logo_col, title_col = st.columns([1, 3])
 
 with logo_col:
     # Adjust width as needed
     st.write("")
-    st.image(r"C:\Users\micha\Desktop\Models\G_Meridian\PM_demo\P_LOGO.png", width=500) 
+    st.image("P_LOGO.png", width=500) 
 
 with title_col:
     #st.markdown("""<h3 style="font-size: 38px; margin-top: 0px;"> Marketing Mix Modelling Dashboard </h3>""", unsafe_allow_html=True)
@@ -43,9 +43,9 @@ st.markdown(f"""
 st.markdown("<hr style='border:1px solid red'>", unsafe_allow_html=True)
 
 # Tutaj dodajemy źródła
-demo_data = pd.read_excel(r'C:\Users\micha\Desktop\Models\G_Meridian\PM_demo\demo_data.xlsx')
-demo_data1 = pd.read_excel(r'C:\Users\micha\Desktop\Models\G_Meridian\PM_demo\demo_data1.xlsx')
-demo_data2 = pd.read_excel(r'C:\Users\micha\Desktop\Models\G_Meridian\PM_demo\demo_data2.xlsx')
+demo_data = pd.read_excel('demo_data.xlsx')
+demo_data1 = pd.read_excel('demo_data1.xlsx')
+demo_data2 = pd.read_excel('demo_data2.xlsx')
 
 # Zmienne globalne
 result_factors = {}
