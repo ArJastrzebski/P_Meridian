@@ -179,7 +179,8 @@ with target_col4:
     pass
 
 # definicja tabów ze scenariuszami
-scenarios = ["Scenario 1", "Scenario 2", "Scenario 3", "Scenario 4","Scenario 5","Scenario 6","Scenario 7"]
+# scenarios = ["Scenario 1", "Scenario 2", "Scenario 3", "Scenario 4","Scenario 5","Scenario 6","Scenario 7"]
+scenarios = ["Fixed budget", "Flexible budget", "Increased costs", "No TV","No Display","No Social","No Search"]
 tab1, tab2, tab3, tab4, tab5, tab6, tab7 = st.tabs(scenarios)
 
 def Scenario_1(demo_data): 
