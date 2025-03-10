@@ -117,10 +117,11 @@ def marketing_funnel_chart(demo_data):
     for column in funnel_columns:
         funnel_factors[column] = demo_data[column].sum()
 
-    funnel_data = {'number': list(funnel_factors.values()), 'stage': list(funnel_factors.keys())}
-    fig_mf = px.funnel(funnel_data, x='number', y='stage', title='Marketing funnel and conversion rates', 
-                       color_discrete_sequence=['#3C5291'], width=600, height=300)
+    funnel_data = {'number': [f'{value:,d}' for value in list(funnel_factors.values())], 'number_log': np.log10(list(funnel_factors.values())), 'stage': list(funnel_factors.keys())}
+    fig_mf = px.funnel(funnel_data, x='number_log', y='stage', text=[f'{stage}: {value}' for stage, value in zip(funnel_data['stage'], funnel_data['number'])],
+                         title='Marketing funnel and conversion rates', color_discrete_sequence=['#3C5291'], labels=None)
     fig_mf.update_layout(yaxis_title=None)
+    fig_mf.update_traces(texttemplate='%{text}')
     st.plotly_chart(fig_mf) #, key="unique_key_3"
 
 def base_chart(demo_data):
