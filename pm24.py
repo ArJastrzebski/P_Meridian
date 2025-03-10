@@ -121,7 +121,7 @@ def base_chart(demo_data):
     data_source = demo_data[['Baseline', 'TV', 'Display', 'Social', 'SEA']]
     data_source['Time Period'] = demo_data[group_by]  # Użycie zmiennej 'group_by' jako 'Time Period'
     
-    fig_base = px.area(data_source, x='Time Period', y=(data_source.columns), color_discrete_sequence=px.colors.sequential.YlGnBu, width=2000, height=500) # sorted(data_source.columns[:-1]
+    fig_base = px.area(data_source, x='Time Period', y=(data_source.columns), color_discrete_sequence=px.colors.sequential.BuGn, width=2000, height=500) # sorted(data_source.columns[:-1]
     fig_base.update_layout(xaxis_title=group_by, yaxis_title='Values', title='Sales, Base_S & Marketing Spendings', showlegend=True)
     fig_base.update_layout(showlegend=True)
     st.plotly_chart(fig_base) #, key="unique_key_4"
