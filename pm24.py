@@ -97,14 +97,14 @@ def expected_leads_chart(demo_data, group_by):
     data_grouped = demo_data.groupby(group_by).agg({'Expected_leads':'sum', 'Actual_leads':'sum'}).reset_index()
     fig_exl = px.line(data_grouped, x=group_by, y=['Expected_leads', 'Actual_leads'], 
         labels={'value': 'Values', 'time': group_by}, title='Expected leads vs. Actual leads',
-                      color_discrete_map= {'Expected_leads': '#135DD8', 'Actual_leads': '#D6001C'}, width=800, height=400)
+                      color_discrete_map= {'Expected_leads': '#135DD8', 'Actual_leads': '#D6001C'}, width=700, height=400)
     fig_exl.update_layout(legend_title='Legend', template='plotly_white')
     st.plotly_chart(fig_exl) 
 
 def result_factors_chart(result_factors):
     result_factors_df = pd.DataFrame(list(result_factors.items()), columns=['Factor', 'Percentage'])
     fig_rs = px.bar(result_factors_df, x='Factor', y='Percentage', 
-                      title='Sales contribution by baseline and marketing channel', color_discrete_sequence=['#0050B5'], width=800, height=400)   
+                      title='Sales contribution by baseline and marketing channel', color_discrete_sequence=['#0050B5'], width=700, height=400)   
     st.plotly_chart(fig_rs) 
         
 def marketing_funnel_chart(demo_data):
@@ -115,7 +115,7 @@ def marketing_funnel_chart(demo_data):
 
     funnel_data = {'number': list(funnel_factors.values()), 'stage': list(funnel_factors.keys())}
     fig_mf = px.funnel(funnel_data, x='number', y='stage', title='Marketing funnel and conversion rates', 
-                       color_discrete_sequence=['#3C5291'], width=800, height=400)
+                       color_discrete_sequence=['#3C5291'], width=700, height=400)
     fig_mf.update_layout(yaxis_title=None)
     st.plotly_chart(fig_mf) #, key="unique_key_3"
 
@@ -123,7 +123,7 @@ def base_chart(demo_data):
     data_source = demo_data[[group_by, 'Baseline', 'TV', 'Display', 'Social', 'SEA']]
     data_grouped = data_source.groupby(group_by).agg({el :'sum' for el in data_source.columns if el != group_by}).reset_index()
         
-    fig_base = px.area(data_grouped, x=group_by, y=(data_grouped.columns), color_discrete_sequence=px.colors.sequential.Sunset, width=800, height=400) # sorted(data_source.columns[:-1]
+    fig_base = px.area(data_grouped, x=group_by, y=(data_grouped.columns), color_discrete_sequence=px.colors.sequential.Sunset, width=700, height=400) # sorted(data_source.columns[:-1]
     fig_base.update_layout(xaxis_title=group_by, yaxis_title='Values', title='Decomposition over time', showlegend=True)
     fig_base.update_layout(showlegend=True)
     st.plotly_chart(fig_base) #, key="unique_key_4"
