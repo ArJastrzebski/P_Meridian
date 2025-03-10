@@ -75,6 +75,22 @@ def sales_cont_func(demo_data):
     total_spend = demo_data['Spend'].sum()
     ROI = (total_sum / total_spend)/100
     return result_factors, ROI, total_spend, sales_cont
+
+def leads_sum(demo_data):
+    leads_columns = demo_data[['Expected_leads','Actual_leads']]
+    leads_factors = {}
+    for column in leads_columns:
+        leads_factors[column] = demo_data[column].sum()
+    
+    difference = leads_factors['Expected_leads'] - leads_factors['Actual_leads']
+    result = {'Difference': difference}
+    
+    return {'Actual': leads_factors['Actual_leads'],
+            'Expected': leads_factors['Expected_leads'],
+            'Difference': result['Difference']}
+
+def format_with_million(value):
+    return f"{value / 1_000_000:.1f}M"
     
 def expected_leads_chart(demo_data, group_by):
     fig_exl = px.line(demo_data, x=group_by, y=['Expected_leads', 'Actual_leads'], 
@@ -152,9 +168,14 @@ def Scenario_1(demo_data):
         
     # Parametry ogólne po lewej stronie taba
     with stat_col:
-        st.write("**Actual:** 69.0 M")  
-        st.write("**Expected:** 74.0 M")  
-        st.write("Difference: +5 M") 
+        leads_result = leads_sum(demo_data)
+        formatted_actual = format_with_million(leads_result['Actual'])
+        formatted_expected = format_with_million(leads_result['Expected'])
+        formatted_difference = format_with_million(leads_result['Difference'])
+
+        st.write('Actual:', formatted_actual)
+        st.write('Expected:', formatted_expected)
+        st.write('Difference:', formatted_difference)
             
         spend_col, roi_col = st.columns([2,2])     
         with spend_col:
@@ -188,9 +209,14 @@ def Scenario_2(demo_data):
         
         # Part for overall statistics
     with stat_col:
-        st.write("**Actual:** 69.0 M")  
-        st.write("**Expected:** 74.0 M")  
-        st.write("Difference: +5 M") 
+        leads_result = leads_sum(demo_data)
+        formatted_actual = format_with_million(leads_result['Actual'])
+        formatted_expected = format_with_million(leads_result['Expected'])
+        formatted_difference = format_with_million(leads_result['Difference'])
+
+        st.write('Actual:', formatted_actual)
+        st.write('Expected:', formatted_expected)
+        st.write('Difference:', formatted_difference) 
             
         spend_col, roi_col = st.columns([2,2])     
         with spend_col:
@@ -224,9 +250,14 @@ def Scenario_3(demo_data):
         
         # Part for overall statistics
     with stat_col:
-        st.write("**Actual:** 69.0 M")  
-        st.write("**Expected:** 74.0 M")  
-        st.write("Difference: +5 M") 
+        leads_result = leads_sum(demo_data)
+        formatted_actual = format_with_million(leads_result['Actual'])
+        formatted_expected = format_with_million(leads_result['Expected'])
+        formatted_difference = format_with_million(leads_result['Difference'])
+
+        st.write('Actual:', formatted_actual)
+        st.write('Expected:', formatted_expected)
+        st.write('Difference:', formatted_difference)
             
         spend_col, roi_col = st.columns([2,2])     
         with spend_col:
