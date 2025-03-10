@@ -54,28 +54,6 @@ total_spend = 0
 sales_cont = {}
 
 # definicje funkcji do wykresów
-#def sales_cont_func(demo_data):
-#    global result_factors, ROI, total_spend, sales_cont
-#    selected_columns = demo_data[['Tot_sale', 'Baseline', 'TV', 'Display', 'Social', 'SEA']]
-#    cont_factors = {}
-#    for column in selected_columns:
-#        cont_factors[column] = demo_data[column].sum()
-        
-#    result_factors = {}
-#    for column in ['Baseline', 'TV', 'Display', 'Social', 'SEA']:
-#        result_factors[column] = round((cont_factors[column] / cont_factors['Tot_sale']) * 100, 2)
-    
-#    sales_cont = {}
-#    sales_cont['Baseline'] = result_factors['Baseline']
-#    sales_cont['All channels'] = sum(result_factors[key] for key in result_factors if key != 'Baseline')
-#    selected_car_price = demo_data['Car_Price']
-#    multiplied_columns = selected_columns.mul(selected_car_price, axis=0)
-#    sum_multiplied_columns = multiplied_columns.sum()
-#    total_sum = sum_multiplied_columns.sum()
-#    total_spend = demo_data['Spend'].sum()
-#    ROI = (total_sum / total_spend)/100
-#    return result_factors, ROI, total_spend, sales_cont
-
 def sales_cont_func(demo_data):
     global result_factors, ROI, total_spend, sales_cont
     selected_columns = demo_data[['Tot_sale', 'Baseline', 'TV', 'Display', 'Social', 'SEA']]
