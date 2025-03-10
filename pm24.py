@@ -43,9 +43,13 @@ st.markdown(f"""
 st.markdown("<hr style='border:1px solid red'>", unsafe_allow_html=True)
 
 # Tutaj dodajemy źródła
-demo_data = pd.read_excel('demo_data.xlsx')
-demo_data1 = pd.read_excel('demo_data1.xlsx')
-demo_data2 = pd.read_excel('demo_data2.xlsx')
+demo_data = pd.read_excel('demo_data11.xlsx')
+demo_data1 = pd.read_excel('demo_data12.xlsx')
+demo_data2 = pd.read_excel('demo_data13.xlsx')
+demo_data3 = pd.read_excel('demo_data14.xlsx')
+demo_data4 = pd.read_excel('demo_data15.xlsx')
+demo_data5 = pd.read_excel('demo_data16.xlsx')
+demo_data6 = pd.read_excel('demo_data17.xlsx')
 
 # Zmienne globalne
 result_factors = {}
