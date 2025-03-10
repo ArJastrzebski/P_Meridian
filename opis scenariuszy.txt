@@ -1,0 +1,13 @@
+Scenariusz 1, bazowy:
+	Optymalizujemy ROI nie przekraczając budżetu
+Scenariusz 2, zmodyfikowany:
+	Optymalizujemy ROI, możemy sobie podnieść budżet
+Scenariusz 3, stresowy:
+	Budżet jest ten sam, ale koszty jednostkowe mediów rosną o 30%
+	Trzeba zoptymalizować ROI ale zmieścić się w budżecie
+Scenariusz 4 - wyrzucamy TV, wszystko ładujemy na inne kanały
+Scenariusz 5 - wyrzucamy Display, wszystko ładujemy na inne kanały
+Scenariusz 6 - wyrzucamy Social, wszystko ładujemy na inne kanały
+Scenariusz 7 - wyrzucamy Search, wszystko ładujemy na inne kanały
+
+To nie jest pokazane, ale benchmarkowe ROI (to co jest w Actual_Leads) wynosi ok.4
