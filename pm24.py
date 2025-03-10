@@ -92,13 +92,6 @@ def leads_sum(demo_data):
 def format_with_million(value):
     return f"{value / 1_000_000:.1f}M"
     
-#def expected_leads_chart(demo_data, group_by):
-#    fig_exl = px.line(demo_data, x=group_by, y=['Expected_leads', 'Actual_leads'], 
-#        labels={'value': 'Values', 'time': group_by}, title='Expected leads vs. Actual leads',
-#                      color_discrete_map= {'Expected_leads': '#135DD8', 'Actual_leads': '#D6001C'} )
-#    fig_exl.update_layout(legend_title='Legend', template='plotly_white')
-#    st.plotly_chart(fig_exl) #, key="unique_key_1"
-
 def expected_leads_chart(demo_data, group_by):
     data_grouped = demo_data.groupby(group_by).agg({'Expected_leads':'sum', 'Actual_leads':'sum'}).reset_index()
     fig_exl = px.line(data_grouped, x=group_by, y=['Expected_leads', 'Actual_leads'], 
