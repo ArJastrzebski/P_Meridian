@@ -122,7 +122,7 @@ def base_chart(demo_data):
     data_source = demo_data[[group_by, 'Baseline', 'TV', 'Display', 'Social', 'SEA']]
     data_grouped = data_source.groupby(group_by).agg({el :'sum' for el in data_source.columns if el != group_by}).reset_index()
         
-    fig_base = px.area(data_grouped, x=group_by, y=(data_grouped.columns), color_discrete_sequence=px.colors.sequential.Sunset, width=2000, height=500) # sorted(data_source.columns[:-1]
+    fig_base = px.area(data_grouped, x=group_by, y=sorted(data_grouped.columns[:-1]), color_discrete_sequence=px.colors.sequential.Sunset, width=2000, height=500) # sorted(data_source.columns[:-1]
     fig_base.update_layout(xaxis_title=group_by, yaxis_title='Values', title='Decomposition over time', showlegend=True)
     fig_base.update_layout(showlegend=True)
     st.plotly_chart(fig_base) #, key="unique_key_4"
