@@ -124,6 +124,18 @@ def marketing_funnel_chart(demo_data):
     fig_mf.update_traces(texttemplate='%{text}')
     st.plotly_chart(fig_mf) #, key="unique_key_3"
 
+#def marketing_funnel_chart(demo_data):
+#    funnel_columns = demo_data[['Impressions', 'Leads', 'Opportunities', 'Customers']]
+#    funnel_factors = {}
+#    for column in funnel_columns:
+#        funnel_factors[column] = demo_data[column].sum()
+
+#    funnel_data = {'number': list(funnel_factors.values()), 'stage': list(funnel_factors.keys())}
+#    fig_mf = px.funnel(funnel_data, x='number', y='stage', 
+#                         title='Marketing funnel and conversion rates', color_discrete_sequence=['#3C5291'])
+#    fig_mf.update_layout(yaxis_title=None)
+#    st.plotly_chart(fig_mf) #, key="unique_key_3"
+
 def base_chart(demo_data):
     data_source = demo_data[[group_by, 'Baseline', 'TV', 'Display', 'Social', 'SEA']]
     data_grouped = data_source.groupby(group_by).agg({el :'sum' for el in data_source.columns if el != group_by}).reset_index()
