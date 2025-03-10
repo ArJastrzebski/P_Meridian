@@ -167,7 +167,7 @@ with target_col4:
 
 # definicja tabów ze scenariuszami
 scenarios = ["Scenario 1", "Scenario 2", "Scenario 3", "Scenario 4","Scenario 5","Scenario 6","Scenario 7"]
-tab1, tab2, tab3 = st.tabs(scenarios)
+tab1, tab2, tab3, tab4, tab5, tab6, tab7 = st.tabs(scenarios)
 
 def Scenario_1(demo_data): 
     st.markdown( """<h4 style="font-size: 20px; margin-bottom: -20px;"> Leads </h4>""", unsafe_allow_html=True)         
@@ -330,7 +330,7 @@ def Scenario_4(demo_data):
     with funnel_col:
         marketing_funnel_chart(demo_data)
         base_chart(demo_data)
-with tab3: 
+with tab4: 
     Scenario_4(demo_data3)
 
 def Scenario_5(demo_data): 
@@ -371,5 +371,87 @@ def Scenario_5(demo_data):
     with funnel_col:
         marketing_funnel_chart(demo_data)
         base_chart(demo_data)
-with tab3: 
+with tab5: 
     Scenario_5(demo_data4)
+
+def Scenario_6(demo_data): 
+    st.markdown("""<h4 style="font-size: 20px; margin-bottom: -20px;"> Leads </h4>""", unsafe_allow_html=True)
+    stat_col, summarizer_col, funnel_col = st.columns([1,2,2])
+        
+        # Part for overall statistics
+    with stat_col:
+        leads_result = leads_sum(demo_data)
+        formatted_actual = format_with_million(leads_result['Actual'])
+        formatted_expected = format_with_million(leads_result['Expected'])
+        formatted_difference = format_with_million(leads_result['Difference'])
+
+        st.write('Actual:', formatted_actual)
+        st.write('Expected:', formatted_expected)
+        st.write('Difference:', formatted_difference)
+            
+        spend_col, roi_col = st.columns([2,2])     
+        with spend_col:
+            st.markdown("""<h4 style="font-size: 20px; margin-bottom: -20px;"> Spend </h4>""", unsafe_allow_html=True) 
+            sales_cont_func(demo_data)
+            formatted_total_spend = f"€{total_spend:,.2f}"
+            st.write(formatted_total_spend)
+        with roi_col:
+            st.markdown("""<h4 style="font-size: 20px; margin-bottom: -20px;"> ROI </h4>""", unsafe_allow_html=True)    
+            sales_cont_func(demo_data)
+            formatted_ROI = round(ROI, 2)
+            st.write(formatted_ROI)
+            
+        st.markdown("""<h4 style="font-size: 20px; margin-bottom: -20px;"> Sales contribution</h4>""", unsafe_allow_html=True)
+        st.write(f"Baseline: {sales_cont['Baseline']} %")
+        st.write(f"All channels: {sales_cont['All channels']:.2f}%")
+
+    with summarizer_col:
+        expected_leads_chart(demo_data, group_by)
+        result_factors_chart(result_factors)    
+    
+    with funnel_col:
+        marketing_funnel_chart(demo_data)
+        base_chart(demo_data)
+with tab6: 
+    Scenario_6(demo_data5)
+
+def Scenario_7(demo_data): 
+    st.markdown("""<h4 style="font-size: 20px; margin-bottom: -20px;"> Leads </h4>""", unsafe_allow_html=True)
+    stat_col, summarizer_col, funnel_col = st.columns([1,2,2])
+        
+        # Part for overall statistics
+    with stat_col:
+        leads_result = leads_sum(demo_data)
+        formatted_actual = format_with_million(leads_result['Actual'])
+        formatted_expected = format_with_million(leads_result['Expected'])
+        formatted_difference = format_with_million(leads_result['Difference'])
+
+        st.write('Actual:', formatted_actual)
+        st.write('Expected:', formatted_expected)
+        st.write('Difference:', formatted_difference)
+            
+        spend_col, roi_col = st.columns([2,2])     
+        with spend_col:
+            st.markdown("""<h4 style="font-size: 20px; margin-bottom: -20px;"> Spend </h4>""", unsafe_allow_html=True) 
+            sales_cont_func(demo_data)
+            formatted_total_spend = f"€{total_spend:,.2f}"
+            st.write(formatted_total_spend)
+        with roi_col:
+            st.markdown("""<h4 style="font-size: 20px; margin-bottom: -20px;"> ROI </h4>""", unsafe_allow_html=True)    
+            sales_cont_func(demo_data)
+            formatted_ROI = round(ROI, 2)
+            st.write(formatted_ROI)
+            
+        st.markdown("""<h4 style="font-size: 20px; margin-bottom: -20px;"> Sales contribution</h4>""", unsafe_allow_html=True)
+        st.write(f"Baseline: {sales_cont['Baseline']} %")
+        st.write(f"All channels: {sales_cont['All channels']:.2f}%")
+
+    with summarizer_col:
+        expected_leads_chart(demo_data, group_by)
+        result_factors_chart(result_factors)    
+    
+    with funnel_col:
+        marketing_funnel_chart(demo_data)
+        base_chart(demo_data)
+with tab7: 
+    Scenario_6(demo_data6)
