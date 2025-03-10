@@ -13,7 +13,7 @@ logo_col, title_col = st.columns([1, 3])
 with logo_col:
     # Adjust width as needed
     st.write("")
-    st.image("logo2.png", width=500) 
+    st.image("logo2.png", width=600) 
 
 with title_col:
     #st.markdown("""<h3 style="font-size: 38px; margin-top: 0px;"> Marketing Mix Modelling Dashboard </h3>""", unsafe_allow_html=True)
