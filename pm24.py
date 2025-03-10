@@ -94,7 +94,8 @@ def format_with_million(value):
     
 def expected_leads_chart(demo_data, group_by):
     fig_exl = px.line(demo_data, x=group_by, y=['Expected_leads', 'Actual_leads'], 
-        labels={'value': 'Values', 'time': group_by}, title='Expected leads vs. Actual leads',color_discrete_map= {'Expected_leads': '#135DD8', 'Actual_leads': '#D6001C'} )
+        labels={'value': 'Values', 'time': group_by}, title='Expected leads vs. Actual leads',
+                      color_discrete_map= {'Expected_leads': '#135DD8', 'Actual_leads': '#D6001C'} )
     fig_exl.update_layout(legend_title='Legend', template='plotly_white')
     st.plotly_chart(fig_exl) #, key="unique_key_1"
 
@@ -120,7 +121,7 @@ def base_chart(demo_data):
     data_source = demo_data[['Baseline', 'TV', 'Display', 'Social', 'SEA']]
     data_source['Time Period'] = demo_data[group_by]  # Użycie zmiennej 'group_by' jako 'Time Period'
     
-    fig_base = px.area(data_source, x='Time Period', y=(data_source.columns),                      color_discrete_sequence=px.colors.sequential.Sunset, width=2000, height=500) # sorted(data_source.columns[:-1]
+    fig_base = px.area(data_source, x='Time Period', y=(data_source.columns), color_discrete_sequence=px.colors.sequential.YlGnBu, width=2000, height=500) # sorted(data_source.columns[:-1]
     fig_base.update_layout(xaxis_title=group_by, yaxis_title='Values', title='Sales, Base_S & Marketing Spendings', showlegend=True)
     fig_base.update_layout(showlegend=True)
     st.plotly_chart(fig_base) #, key="unique_key_4"
