@@ -97,12 +97,11 @@ def leads_sum(demo_data):
 def format_with_million(value):
     return f"{value / 1_000_000:.1f}M"
     
-def expected_leads_chart(demo_data, group_by):
+def expected_leads_chart(demo_data, group_by):  #, labels={'value': 'Values', 'time': group_by}
     data_grouped = demo_data.groupby(group_by).agg({'Expected_leads':'sum', 'Actual_leads':'sum'}).reset_index()
-    fig_exl = px.line(data_grouped, x=group_by, y=['Expected_leads', 'Actual_leads'], 
-        labels={'value': 'Values', 'time': group_by}, title='Expected leads vs. Actual leads',
+    fig_exl = px.line(data_grouped, x=group_by, y=['Expected_leads', 'Actual_leads'], title='Expected leads vs. Actual leads',
                       color_discrete_map= {'Expected_leads': '#135DD8', 'Actual_leads': '#D6001C'}, width=600, height=350)
-    fig_exl.update_layout(template='plotly_white', legend=dict(orientation='h', yanchor='bottom', y=-0.5, xanchor='center', x=0.5))
+    fig_exl.update_layout(template='plotly_white', legend=dict(orientation='h', yanchor='bottom', y=-0.5, xanchor='center', x=0.5))  
     st.plotly_chart(fig_exl) 
 
 def result_factors_chart(result_factors):
